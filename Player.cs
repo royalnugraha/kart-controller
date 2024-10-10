@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -226,7 +226,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (trickAvailable && Input.GetKeyDown(KeyCode.Space && REALCURRENTSPEED > 40 && !GLIDER_FLY)
+        if (trickAvailable && Input.GetKeyDown(KeyCode.Space) && REALCURRENTSPEED > 40 && !GLIDER_FLY)
         {
 
             trickAvailable = false;
@@ -1346,7 +1346,7 @@ public class Player : MonoBehaviour
         if(GLIDER_FLY)
         {
             Vector3 newVel = rb.velocity;
-            if (!Input.GetKey(KeyCode.DownArrow))
+            if (!Input.GetKey(KeyCode.UpArrow)
             {
                 newVel.y *= 0.75f;
             }
@@ -1358,7 +1358,7 @@ public class Player : MonoBehaviour
         }
         if (GLIDER_FLY)
         {
-            if (!Input.GetKey(KeyCode.UpArrow))
+            if (!Input.GetKey(KeyCode.DownArrow))
             {
                 currentspeed = Mathf.Lerp(currentspeed, 65, 2 * Time.deltaTime);
             }
@@ -1805,7 +1805,7 @@ public class Player : MonoBehaviour
 
 
         //no more drift
-        if (!Input.GetKey(KeyCode.Space) //if not drifting, or drifting without direction
+        if (!Input.GetKey(KeyCode.Space)) //if not drifting, or drifting without direction
         {
 
             drifting = false;
